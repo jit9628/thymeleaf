@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="hppt://www.thymeleaf.org/">
+<head th:replace="fragments :: html_head">
+
+</head>
+<body>
+	<div th:replace="headercontents :: header-contents"></div>
+	<div th:replace="otherpageheader :: other-page-header"></div>
+
+	<div class="container">
+		<p class="text-center">Book User Details</p>
+		<button class="btn-primary" ><a th:href="@{/details/excel}" class="nav-item nav-link text-light">Export To Excel</a></button>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="details: ${listsAll}">
+					<td th:text="${details.name}" />
+					<td th:text="${details.email}" />
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
